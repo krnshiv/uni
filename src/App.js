@@ -1,27 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-import TopSection from './components/TopSection';
-import Header from './components/Header';
-import SecondSection from './components/SecondSection';
-import ThirdSection from './components/ThirdSection';
-import FourthSection from './components/FourthSection';
-import Footer from './components/Footer';
+import React from 'react';
 
-function App() {
+import TopSection from "./components/TopSection";
+import SecondSection from "./components/SecondSection";
+import ThirdSection from "./components/ThirdSection";
+import FourthSection from "./components/FourthSection";
+import Footer from "./components/Footer";
+import { useState } from "react";
+
+
+function App(props) {
+  const [value, setValue] = useState("");
   return (
-   <>
-   {/* top section */}
+    <div>
    
-   <TopSection/>
-   <SecondSection/>
-   <ThirdSection/>
-   <FourthSection/>
-   <Footer/>
-   {/* top section */}
-   {/* top section */}
-   {/* top section */}
-   {/* top section */}
-   </>
+    <TopSection value={value} setValue={setValue} />
+    <SecondSection />
+    <ThirdSection />
+    <FourthSection />
+    <Footer value={value} setValue={setValue} />
+    </div>
   );
 }
 

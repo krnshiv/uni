@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 
 function TopSection(props) {
+    
   return (
     <div className="">
     <Header/> 
@@ -58,12 +59,16 @@ function TopSection(props) {
                 <form>
                   <div className="flex bg-black p-1 pl-2 rounded-xl justify-between">
                     <div className="flex items-center">
-                      <input
-                        className="bg-black border-0 outline-none text-white p-1 placeholder-[#7E8587] w-44"
-                        placeholder="Enter Phone Number"
-                        value=""
-                      />
-                      <span className="w-6 flex items-center justify-end h-full"></span>
+                    <input
+                    className="bg-black border-0 outline-none text-white p-1 placeholder-[#7E8587] w-44"
+                    placeholder="Enter Phone Number"
+                    value={props.value}
+                    onChange={(e)=>{props.setValue(e.target.value)}}
+                  />
+                  {props.value?<button type="button" onClick={()=>{props.setValue('')}}>
+                  <svg width="14" height="15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.498.498.356 1.72l5.41 5.786L.41 13.233l1.17 1.25 5.355-5.728 5.41 5.786 1.142-1.22-5.41-5.787 5.492-5.873-1.17-1.25-5.491 5.873L1.498.498Z" fill="#fff"></path></svg></button>
+                :  <span className="w-6 flex items-center justify-end h-full"></span>
+                }
                     </div>
                     <button
                       type="submit"
@@ -73,8 +78,8 @@ function TopSection(props) {
                     </button>
                   </div>
                 </form>
-                <div className="consent flex items-center py-4 px-2 max-w-xs">
-                  <input type="checkbox" checked="" id="consent-msg" />
+                <div className="consent flex items-center py-4 px-2 max-w-xs gap-2">
+                  <input type="checkbox" checked="false" id="consent-msg" />
                   <label
                     for="consent-msg"
                     className="consent text-white md:text-black text-[10px] leading-3 cursor-pointer"
