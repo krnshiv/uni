@@ -3,8 +3,6 @@ import Logo from "../assets/Logo";
 import WhiteLogo from "../assets/WhiteLogo";
 
 function Footer(props) {
-    
-const [isTop, checkTop] = useState(true)
 
   return (
     <div>
