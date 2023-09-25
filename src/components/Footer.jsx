@@ -6,11 +6,11 @@ function Footer(props) {
   return (
     <div>
       <section>
-        <div className="relative w-full bg-black-2">
-          <div className="flex items-center justify-center p-4 text-grey-dark">
+        <div className="relative w-full bg-[rgba(34,34,34,1);]">
+          <div className="flex items-center justify-center p-4 text-gray-500">
             <p>Uni maintains the highest level of security standards</p>
             <img
-              src="/images/pcidss_cert.svg"
+              src="https://www.uni.cards/images/pcidss_cert.svg"
               className="ml-3 w-20 css-0"
               width="80px"
               loading="lazy"
