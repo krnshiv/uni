@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../assets/Logo";
 import WhiteLogo from "../assets/WhiteLogo";
 
 function Footer(props) {
+    
+const [isTop, checkTop] = useState(true)
+
+useEffect(()=>{
+    if (!window.scrollY) checkTop(true)
+},[scroll])
+
   return (
     <div>
       <section>
@@ -29,7 +36,7 @@ function Footer(props) {
                 <div className="mx-0 md:m-0">
                   <WhiteLogo />
                 </div>
-                <div className="text-grey-dark text-[13px] lg:text-base">
+                <div className="text-gray-500 text-[13px] lg:text-base">
                   <p className="text-left w-full sm:w-[400px] md:w-[280px] lg:[w-360px]">
                     Indiqube Sigma No.3/B, Nexus Koramangala 3rd Block SBI
                     Colony, Koramangala, Bengaluru, Karnataka 560034
@@ -208,7 +215,7 @@ function Footer(props) {
         </div>
       </div>
 
-      <div style={{ opacity: "1" }}>
+      {!isTop&&<div style={{ opacity: "1" }}>
         <section className="hidden sm:block fixed bottom-0 w-screen bg-[rgba(245,245,245,1)] py-5 z-10">
           <div className="mx-auto max-w-7xl px-12 w-full flex justify-between">
             <div className="flex justify-between items-center block w-full">
@@ -219,9 +226,13 @@ function Footer(props) {
                       <input
                         className="bg-black border-0 outline-none text-white p-1 placeholder-[#7E8587] w-44"
                         placeholder="Enter Phone Number"
-                        value=""
+                        value={props.value}
+                        onChange={(e)=>{props.setValue(e.target.value)}}
                       />
-                      <span className="w-6 flex items-center justify-end h-full"></span>
+                      {props.value?<button type="button" onClick={()=>{props.setValue('')}}>
+                      <svg width="14" height="15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.498.498.356 1.72l5.41 5.786L.41 13.233l1.17 1.25 5.355-5.728 5.41 5.786 1.142-1.22-5.41-5.787 5.492-5.873-1.17-1.25-5.491 5.873L1.498.498Z" fill="#fff"></path></svg></button>
+                    :  <span className="w-6 flex items-center justify-end h-full"></span>
+                    }
                     </div>
                     <button
                       type="submit"
@@ -232,7 +243,7 @@ function Footer(props) {
                   </div>
                 </form>
                 <div className="consent flex items-center py-4 px-2 max-w-xs gap-2">
-                  <input type="checkbox" id="consent-msg" checked="" />
+                  <input type="checkbox" id="consent-msg" checked="false" />
                   <label
                     for="consent-msg"
                     className="consent text-white md:text-black text-[10px] leading-3 cursor-pointer"
@@ -266,7 +277,7 @@ function Footer(props) {
             </div>
           </div>
         </section>
-      </div>
+      </div>}
     </div>
   );
 }
