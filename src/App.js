@@ -1,5 +1,4 @@
 import React from 'react';
-
 import TopSection from "./components/TopSection";
 import SecondSection from "./components/SecondSection";
 import ThirdSection from "./components/ThirdSection";
