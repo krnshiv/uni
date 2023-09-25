@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import TopSection from "./components/TopSection";
 import SecondSection from "./components/SecondSection";
 import ThirdSection from "./components/ThirdSection";
@@ -9,6 +9,11 @@ import { useState } from "react";
 
 function App(props) {
   const [value, setValue] = useState("");
+
+  const [isTop, setTop] = useState(true)
+
+  document.addEventListener("scroll", (event) => { setTop(window.scrollY===0)});
+
   return (
     <div>
    
@@ -16,7 +21,7 @@ function App(props) {
     <SecondSection />
     <ThirdSection />
     <FourthSection />
-    <Footer value={value} setValue={setValue} />
+    <Footer value={value} setValue={setValue} isTop={isTop}/>
     </div>
   );
 }
