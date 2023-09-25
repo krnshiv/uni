@@ -211,7 +211,7 @@ const [isTop, checkTop] = useState(true)
         </div>
       </div>
 
-      {<div style={{ opacity: "1" }}>
+      { <div style={{ opacity: "1" }}>
         <section className="hidden sm:block fixed bottom-0 w-screen bg-[rgba(245,245,245,1)] py-5 z-10">
           <div className="mx-auto max-w-7xl px-12 w-full flex justify-between">
             <div className="flex justify-between items-center block w-full">
